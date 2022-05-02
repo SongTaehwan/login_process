@@ -23,10 +23,23 @@ class LoginViewController: UIViewController {
         return textField
     }()
 
+    private lazy var loginButton: AuthButton = {
+        let button = AuthButton(type: .system)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        button.addAction(UIAction(handler: self.handleLogin), for: .touchUpInside)
+        return button
+    }()
+
+    // MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureUI()
     }
+
+    private func handleLogin(_: UIAction) {}
+
+    // MARK: - UI Configuration
 
     private func configureUI() {
         self.navigationController?.navigationBar.isHidden = true
@@ -53,7 +66,7 @@ class LoginViewController: UIViewController {
     }
 
     private func configureTextFields() {
-        let stackView = UIStackView(arrangedSubviews: [emailTextField, passwordTextField])
+        let stackView = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, loginButton])
         stackView.axis = .vertical
         stackView.spacing = 20
 

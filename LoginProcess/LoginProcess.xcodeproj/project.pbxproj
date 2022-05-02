@@ -18,6 +18,7 @@
 		E47BCE3D282007DF00D01BBF /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = E47BCE3C282007DF00D01BBF /* .swiftformat */; };
 		E47BCE3F2820112500D01BBF /* .swiftlint in Resources */ = {isa = PBXBuildFile; fileRef = E47BCE3E2820112500D01BBF /* .swiftlint */; };
 		E47BCE412820127B00D01BBF /* TextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47BCE402820127B00D01BBF /* TextInput.swift */; };
+		E47BCE43282014C600D01BBF /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47BCE42282014C600D01BBF /* AuthButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		E47BCE3C282007DF00D01BBF /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
 		E47BCE3E2820112500D01BBF /* .swiftlint */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint; sourceTree = "<group>"; };
 		E47BCE402820127B00D01BBF /* TextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInput.swift; sourceTree = "<group>"; };
+		E47BCE42282014C600D01BBF /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				E47BCE402820127B00D01BBF /* TextInput.swift */,
+				E47BCE42282014C600D01BBF /* AuthButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E43B12A6281FF68D00D88544 /* UIView+Extensions.swift in Sources */,
+				E47BCE43282014C600D01BBF /* AuthButton.swift in Sources */,
 				E43B12A2281FF42800D88544 /* LoginViewController.swift in Sources */,
 				E47BCE412820127B00D01BBF /* TextInput.swift in Sources */,
 				E43B1288281FF36200D88544 /* ViewController.swift in Sources */,
