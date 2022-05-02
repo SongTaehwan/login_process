@@ -25,10 +25,39 @@ class LoginViewController: UIViewController {
 
     private lazy var loginButton: AuthButton = {
         let button = AuthButton(type: .system)
+        button.isEnabled = false
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         button.addAction(UIAction(handler: self.handleLogin), for: .touchUpInside)
         return button
     }()
+
+    private lazy var forgotPasswordButton: UIButton = {
+        let button = UIButton(type: .system)
+
+        let attributesForTitle: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor(white: 1, alpha: 0.87),
+            .font: UIFont.systemFont(ofSize: 15)
+        ]
+
+        let attributedTitle = NSMutableAttributedString(
+            string: "Forgot your password? ",
+            attributes: attributesForTitle
+        )
+
+        let boldAttribute: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor(white: 1, alpha: 0.87),
+            .font: UIFont.boldSystemFont(ofSize: 15)
+        ]
+
+        attributedTitle.append(NSAttributedString(string: "Get help signing in.", attributes: boldAttribute))
+
+        button.setAttributedTitle(attributedTitle, for: .normal)
+        button.addAction(UIAction(handler: self.showForgetPassword), for: .touchUpInside)
+
+        return button
+    }()
+
+    private let dividerView = Divider()
 
     // MARK: - Lifecycle
 
@@ -38,6 +67,10 @@ class LoginViewController: UIViewController {
     }
 
     private func handleLogin(_: UIAction) {}
+
+    private func showForgetPassword(_: UIAction) {
+        print("Print")
+    }
 
     // MARK: - UI Configuration
 
@@ -66,7 +99,14 @@ class LoginViewController: UIViewController {
     }
 
     private func configureTextFields() {
-        let stackView = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, loginButton])
+        let stackView = UIStackView(arrangedSubviews: [
+            emailTextField,
+            passwordTextField,
+            loginButton,
+            forgotPasswordButton,
+            dividerView
+        ])
+
         stackView.axis = .vertical
         stackView.spacing = 20
 
