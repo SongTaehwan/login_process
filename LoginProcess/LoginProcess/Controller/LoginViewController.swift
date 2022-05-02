@@ -10,46 +10,16 @@ import UIKit
 class LoginViewController: UIViewController {
     private let iconImage = UIImageView(image: #imageLiteral(resourceName: "firebase-logo"))
 
-    private let emailTextField: UITextField = {
-        let textField = UITextField()
-        let spacer = UIView()
-
-        spacer.setDimensions(width: 12, height: 50)
-        textField.leftView = spacer
-        textField.leftViewMode = .always
-
-        textField.borderStyle = .none
-        textField.textColor = .white
-        textField.keyboardAppearance = .dark
-        textField.backgroundColor = UIColor(white: 1, alpha: 0.1)
-        textField.setHeight(50)
-        textField.attributedPlaceholder = NSAttributedString(
-            string: "Email",
-            attributes: [.foregroundColor: UIColor(white: 1, alpha: 0.7)]
-        )
-
+    private let emailTextField: TextInput = {
+        let textField = TextInput()
+        textField.setPlaceholder("Email")
         return textField
     }()
 
-    private let passwordTextField: UITextField = {
-        let textField = UITextField()
-        let spacer = UIView()
-
-        spacer.setDimensions(width: 12, height: 50)
-        textField.leftView = spacer
-        textField.leftViewMode = .always
-
-        textField.borderStyle = .none
-        textField.textColor = .white
-        textField.keyboardAppearance = .dark
+    private let passwordTextField: TextInput = {
+        let textField = TextInput()
         textField.isSecureTextEntry = true
-        textField.backgroundColor = UIColor(white: 1, alpha: 0.1)
-        textField.setHeight(50)
-        textField.attributedPlaceholder = NSAttributedString(
-            string: "Password",
-            attributes: [.foregroundColor: UIColor(white: 1, alpha: 0.7)]
-        )
-
+        textField.setPlaceholder("Password")
         return textField
     }()
 
