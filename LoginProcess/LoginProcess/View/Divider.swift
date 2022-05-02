@@ -46,7 +46,7 @@ class Divider: UIView {
         dividerRight.backgroundColor = UIColor(white: 1, alpha: 0.25)
 
         self.addSubview(dividerRight)
-        
+
         dividerRight.centerY(inView: self)
         dividerRight.anchor(
             leading: label.trailingAnchor,

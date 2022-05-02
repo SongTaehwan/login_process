@@ -8,6 +8,13 @@
 import UIKit
 
 class LoginViewController: UIViewController {
+    private let scrollView: UIScrollView = {
+        let scroll = UIScrollView()
+        return scroll
+    }()
+
+    private let contentView = UIView()
+
     private let iconImage = UIImageView(image: #imageLiteral(resourceName: "firebase-logo"))
 
     private let emailTextField: TextInput = {
@@ -59,6 +66,45 @@ class LoginViewController: UIViewController {
 
     private let dividerView = Divider()
 
+    private lazy var googleLoginButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(#imageLiteral(resourceName: "btn_google_light_pressed_ios").withRenderingMode(.alwaysOriginal), for: .normal)
+        button.setTitle(" Log in with Google", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.addAction(UIAction(handler: self.handleGoogleLogin), for: .touchUpInside)
+
+        return button
+    }()
+
+    private lazy var dontHaveAccountButton: UIButton = {
+        let button = UIButton(type: .system)
+
+        let attributesForTitle: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor(white: 1, alpha: 0.87),
+            .font: UIFont.systemFont(ofSize: 15)
+        ]
+
+        let attributedTitle = NSMutableAttributedString(
+            string: "Don't have an account? ",
+            attributes: attributesForTitle
+        )
+
+        let boldAttribute: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor(white: 1, alpha: 0.87),
+            .font: UIFont.boldSystemFont(ofSize: 16)
+        ]
+
+        attributedTitle.append(NSAttributedString(string: "Sign Up", attributes: boldAttribute))
+
+        button.setAttributedTitle(attributedTitle, for: .normal)
+        button.addAction(UIAction(handler: self.showForgetPassword), for: .touchUpInside)
+
+        return button
+    }()
+
+    private let gradientLayer = CAGradientLayer()
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
@@ -66,7 +112,15 @@ class LoginViewController: UIViewController {
         self.configureUI()
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.gradientLayer.frame = self.view.bounds
+    }
+
     private func handleLogin(_: UIAction) {}
+    private func handleGoogleLogin(_: UIAction) {
+        print("Login with google")
+    }
 
     private func showForgetPassword(_: UIAction) {
         print("Print")
@@ -79,46 +133,86 @@ class LoginViewController: UIViewController {
         self.navigationController?.navigationBar.barStyle = .black
 
         self.configureBackground()
+        self.configureScrollView()
         self.configureIconImage()
         self.configureTextFields()
     }
 
     private func configureBackground() {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [UIColor.systemPurple.cgColor, UIColor.systemBlue.cgColor]
-        gradientLayer.locations = [0, 1]
-        self.view.layer.addSublayer(gradientLayer)
-        gradientLayer.frame = view.frame
+        self.gradientLayer.colors = [UIColor.systemPurple.cgColor, UIColor.systemBlue.cgColor]
+        self.gradientLayer.locations = [0, 1]
+        self.view.layer.addSublayer(self.gradientLayer)
+        self.gradientLayer.frame = view.bounds
+    }
+
+    private func configureScrollView() {
+        self.view.addSubview(self.scrollView)
+        self.scrollView.addSubview(self.contentView)
+        self.scrollView.fill(inView: self.view.safeAreaLayoutGuide)
+        self.contentView.fill(inView: self.scrollView.contentLayoutGuide)
+        self.contentView.setWidth(toAnchor: self.scrollView.frameLayoutGuide.widthAnchor)
+
+        // 최소 크기가 화면 전체
+        self.contentView.heightAnchor.constraint(
+            greaterThanOrEqualTo: self.scrollView.frameLayoutGuide.heightAnchor
+        ).isActive = true
     }
 
     private func configureIconImage() {
-        self.view.addSubview(self.iconImage)
-        self.iconImage.centerX(inView: view)
+        self.contentView.addSubview(self.iconImage)
+        self.iconImage.centerX(inView: self.contentView)
         self.iconImage.setDimensions(width: 120, height: 120)
-        self.iconImage.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 32)
+        self.iconImage.anchor(top: self.contentView.safeAreaLayoutGuide.topAnchor, paddingTop: 32)
     }
 
     private func configureTextFields() {
         let stackView = UIStackView(arrangedSubviews: [
             emailTextField,
             passwordTextField,
-            loginButton,
-            forgotPasswordButton,
-            dividerView
+            loginButton
         ])
 
         stackView.axis = .vertical
         stackView.spacing = 20
 
-        self.view.addSubview(stackView)
+        self.contentView.addSubview(stackView)
 
         stackView.anchor(
             top: self.iconImage.bottomAnchor,
-            leading: view.leadingAnchor,
-            trailing: view.trailingAnchor,
+            leading: self.contentView.leadingAnchor,
+            trailing: self.contentView.trailingAnchor,
             paddingTop: 32,
             paddingLeft: 32,
             paddingRight: 32
         )
+
+        let bottomStackView = UIStackView(arrangedSubviews: [
+            forgotPasswordButton,
+            dividerView,
+            googleLoginButton
+        ])
+
+        bottomStackView.axis = .vertical
+        bottomStackView.spacing = 28
+
+        self.contentView.addSubview(bottomStackView)
+
+        bottomStackView.anchor(
+            top: stackView.bottomAnchor,
+            leading: self.contentView.leadingAnchor,
+            trailing: self.contentView.trailingAnchor,
+            paddingTop: 24,
+            paddingLeft: 32,
+            paddingRight: 32
+        )
+
+        self.contentView.addSubview(self.dontHaveAccountButton)
+
+        self.dontHaveAccountButton.centerX(inView: self.contentView)
+        self.dontHaveAccountButton.anchor(bottom: self.contentView.safeAreaLayoutGuide.bottomAnchor)
+        self.dontHaveAccountButton.topAnchor.constraint(
+            greaterThanOrEqualTo: bottomStackView.bottomAnchor,
+            constant: 20
+        ).isActive = true
     }
 }
