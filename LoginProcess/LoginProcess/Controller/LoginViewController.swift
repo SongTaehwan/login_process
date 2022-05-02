@@ -14,6 +14,8 @@ class LoginViewController: UIViewController {
     }
 
     private func configureUI() {
+        navigationController?.navigationBar.barStyle = .black
+
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [UIColor.systemPurple.cgColor, UIColor.systemBlue.cgColor]
         gradientLayer.locations = [0, 1]
