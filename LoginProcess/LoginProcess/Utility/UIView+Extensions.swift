@@ -9,68 +9,69 @@ import UIKit.UIView
 
 extension UIView {
     // MARK: - AutoLayout
+
     func setHeight(_ value: CGFloat) {
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.heightAnchor.constraint(equalToConstant: value).isActive = true
+        translatesAutoresizingMaskIntoConstraints = false
+        heightAnchor.constraint(equalToConstant: value).isActive = true
     }
 
     func setWidth(_ value: CGFloat) {
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.widthAnchor.constraint(equalToConstant: value).isActive = true
+        translatesAutoresizingMaskIntoConstraints = false
+        widthAnchor.constraint(equalToConstant: value).isActive = true
     }
 
     func setDimensions(width: CGFloat, height: CGFloat) {
-        self.translatesAutoresizingMaskIntoConstraints = false
+        translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            self.widthAnchor.constraint(equalToConstant: width),
-            self.heightAnchor.constraint(equalToConstant: height)
+            widthAnchor.constraint(equalToConstant: width),
+            heightAnchor.constraint(equalToConstant: height)
         ])
     }
 
     func setHeight(toAnchor anchor: NSLayoutAnchor<NSLayoutDimension>, constant: CGFloat = 0) {
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.heightAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
+        translatesAutoresizingMaskIntoConstraints = false
+        heightAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
     }
 
     func setWidth(toAnchor anchor: NSLayoutAnchor<NSLayoutDimension>, constant: CGFloat = 0) {
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.widthAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
+        translatesAutoresizingMaskIntoConstraints = false
+        widthAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
     }
 
     func centerX(inView view: UIView, constant: CGFloat = 0) {
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: constant).isActive = true
+        translatesAutoresizingMaskIntoConstraints = false
+        centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: constant).isActive = true
     }
 
     func centerY(inView view: UIView, constant: CGFloat = 0) {
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: constant).isActive = true
+        translatesAutoresizingMaskIntoConstraints = false
+        centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: constant).isActive = true
     }
 
     func center(inView view: UIView) {
-        self.translatesAutoresizingMaskIntoConstraints = false
+        translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            self.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
 
     func centerX(inLayoutGuide layout: UILayoutGuide, constant: CGFloat = 0) {
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.centerXAnchor.constraint(equalTo: layout.centerXAnchor, constant: constant).isActive = true
+        translatesAutoresizingMaskIntoConstraints = false
+        centerXAnchor.constraint(equalTo: layout.centerXAnchor, constant: constant).isActive = true
     }
 
     func centerY(inLayoutGuide layout: UILayoutGuide, constant: CGFloat = 0) {
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.centerYAnchor.constraint(equalTo: layout.centerYAnchor, constant: constant).isActive = true
+        translatesAutoresizingMaskIntoConstraints = false
+        centerYAnchor.constraint(equalTo: layout.centerYAnchor, constant: constant).isActive = true
     }
 
     func center(inLayoutGuide layout: UILayoutGuide) {
-        self.translatesAutoresizingMaskIntoConstraints = false
+        translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.centerXAnchor.constraint(equalTo: layout.centerXAnchor),
-            self.centerYAnchor.constraint(equalTo: layout.centerYAnchor)
+            centerXAnchor.constraint(equalTo: layout.centerXAnchor),
+            centerYAnchor.constraint(equalTo: layout.centerYAnchor)
         ])
     }
 
@@ -86,37 +87,37 @@ extension UIView {
         width: CGFloat? = nil,
         height: CGFloat? = nil
     ) {
-        self.translatesAutoresizingMaskIntoConstraints = false
+        translatesAutoresizingMaskIntoConstraints = false
 
         var constraints = [NSLayoutConstraint]()
 
         if let top = top {
-            let constraint = self.topAnchor.constraint(equalTo: top, constant: paddingTop)
+            let constraint = topAnchor.constraint(equalTo: top, constant: paddingTop)
             constraints.append(constraint)
         }
 
         if let bottom = bottom {
-            let constraint = bottom.constraint(equalTo: self.bottomAnchor, constant: paddingBottom)
+            let constraint = bottom.constraint(equalTo: bottomAnchor, constant: paddingBottom)
             constraints.append(constraint)
         }
 
         if let leading = leading {
-            let constraint = self.leadingAnchor.constraint(equalTo: leading, constant: paddingLeft)
+            let constraint = leadingAnchor.constraint(equalTo: leading, constant: paddingLeft)
             constraints.append(constraint)
         }
 
         if let trailing = trailing {
-            let constraint = trailing.constraint(equalTo: self.trailingAnchor, constant: paddingRight)
+            let constraint = trailing.constraint(equalTo: trailingAnchor, constant: paddingRight)
             constraints.append(constraint)
         }
 
         if let width = width {
-            let constraint = self.widthAnchor.constraint(equalToConstant: width)
+            let constraint = widthAnchor.constraint(equalToConstant: width)
             constraints.append(constraint)
         }
 
         if let height = height {
-            let constraint = self.heightAnchor.constraint(equalToConstant: height)
+            let constraint = heightAnchor.constraint(equalToConstant: height)
             constraints.append(constraint)
         }
 
@@ -124,7 +125,7 @@ extension UIView {
     }
 
     func fill(inView view: UIView) {
-        self.translatesAutoresizingMaskIntoConstraints = false
+        translatesAutoresizingMaskIntoConstraints = false
         let topAnchor = view.topAnchor
         let leadingAnchor = view.leadingAnchor
         let trailingAnchor = view.trailingAnchor
@@ -134,7 +135,7 @@ extension UIView {
     }
 
     func fill(inView view: UILayoutGuide) {
-        self.translatesAutoresizingMaskIntoConstraints = false
+        translatesAutoresizingMaskIntoConstraints = false
         let topAnchor = view.topAnchor
         let leadingAnchor = view.leadingAnchor
         let trailingAnchor = view.trailingAnchor
@@ -144,6 +145,7 @@ extension UIView {
     }
 
     // MARK: - Border
+
     func addTopBorder(with color: UIColor?, andWidth borderWidth: CGFloat) {
         let border = UIView()
 
@@ -156,7 +158,7 @@ extension UIView {
             height: borderWidth
         )
 
-        self.addSubview(border)
+        addSubview(border)
     }
 
     func addBottomBorder(with color: UIColor?, andWidth borderWidth: CGFloat) {
@@ -170,7 +172,7 @@ extension UIView {
             width: frame.size.width, height: borderWidth
         )
 
-        self.addSubview(border)
+        addSubview(border)
     }
 
     func addLeftBorder(with color: UIColor?, andWidth borderWidth: CGFloat) {
@@ -185,7 +187,7 @@ extension UIView {
             height: frame.size.height
         )
 
-        self.addSubview(border)
+        addSubview(border)
     }
 
     func addRightBorder(with color: UIColor?, andWidth borderWidth: CGFloat) {
@@ -199,13 +201,13 @@ extension UIView {
             height: frame.size.height
         )
 
-        self.addSubview(border)
+        addSubview(border)
     }
 
     func setCornerRadius(ratio: Double) {
-        let width = max(self.intrinsicContentSize.width, self.frame.width)
-        let height = max(self.intrinsicContentSize.height, self.frame.height)
+        let width = max(intrinsicContentSize.width, frame.width)
+        let height = max(intrinsicContentSize.height, frame.height)
 
-        self.layer.cornerRadius = min(width, height) * ratio
+        layer.cornerRadius = min(width, height) * ratio
     }
 }
