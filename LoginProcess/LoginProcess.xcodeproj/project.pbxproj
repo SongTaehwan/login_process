@@ -13,17 +13,17 @@
 		E40C29A82820E8AD00981DE0 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C29A72820E8AD00981DE0 /* AuthenticationViewModel.swift */; };
 		E40C29AA2820EEB400981DE0 /* LabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C29A92820EEB400981DE0 /* LabelButton.swift */; };
 		E40C29AC2820F0C600981DE0 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C29AB2820F0C600981DE0 /* UIColor+Extensions.swift */; };
+		E40C29AE2821037F00981DE0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E40C29AD2821037F00981DE0 /* GoogleService-Info.plist */; };
+		E40C29B228210C1900981DE0 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = E40C29B128210C1900981DE0 /* .swiftlint.yml */; };
 		E4198F292820C2E9003CFE0A /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4198F282820C2E9003CFE0A /* RegistrationController.swift */; };
 		E4198F2B2820C7A8003CFE0A /* ResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4198F2A2820C7A8003CFE0A /* ResetPasswordController.swift */; };
 		E43B1284281FF36200D88544 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B1283281FF36200D88544 /* AppDelegate.swift */; };
 		E43B1286281FF36200D88544 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B1285281FF36200D88544 /* SceneDelegate.swift */; };
-		E43B1288281FF36200D88544 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B1287281FF36200D88544 /* ViewController.swift */; };
 		E43B128D281FF36600D88544 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E43B128C281FF36600D88544 /* Assets.xcassets */; };
 		E43B1290281FF36600D88544 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E43B128E281FF36600D88544 /* LaunchScreen.storyboard */; };
 		E43B12A2281FF42800D88544 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B12A1281FF42800D88544 /* LoginController.swift */; };
 		E43B12A6281FF68D00D88544 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B12A5281FF68D00D88544 /* UIView+Extensions.swift */; };
 		E47BCE3D282007DF00D01BBF /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = E47BCE3C282007DF00D01BBF /* .swiftformat */; };
-		E47BCE3F2820112500D01BBF /* .swiftlint in Resources */ = {isa = PBXBuildFile; fileRef = E47BCE3E2820112500D01BBF /* .swiftlint */; };
 		E47BCE412820127B00D01BBF /* TextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47BCE402820127B00D01BBF /* TextInput.swift */; };
 		E47BCE43282014C600D01BBF /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47BCE42282014C600D01BBF /* AuthButton.swift */; };
 		E4C17FA8282019F400F5D16C /* Divider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C17FA7282019F400F5D16C /* Divider.swift */; };
@@ -38,19 +38,19 @@
 		E40C29A72820E8AD00981DE0 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		E40C29A92820EEB400981DE0 /* LabelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelButton.swift; sourceTree = "<group>"; };
 		E40C29AB2820F0C600981DE0 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		E40C29AD2821037F00981DE0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E40C29B128210C1900981DE0 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		E4198F282820C2E9003CFE0A /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		E4198F2A2820C7A8003CFE0A /* ResetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordController.swift; sourceTree = "<group>"; };
 		E43B1280281FF36200D88544 /* LoginProcess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginProcess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E43B1283281FF36200D88544 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E43B1285281FF36200D88544 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E43B1287281FF36200D88544 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E43B128C281FF36600D88544 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E43B128F281FF36600D88544 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E43B1291281FF36600D88544 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E43B12A1281FF42800D88544 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		E43B12A5281FF68D00D88544 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		E47BCE3C282007DF00D01BBF /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
-		E47BCE3E2820112500D01BBF /* .swiftlint */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint; sourceTree = "<group>"; };
 		E47BCE402820127B00D01BBF /* TextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInput.swift; sourceTree = "<group>"; };
 		E47BCE42282014C600D01BBF /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
 		E4C17FA7282019F400F5D16C /* Divider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Divider.swift; sourceTree = "<group>"; };
@@ -85,11 +85,29 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		E40C29AF2821038600981DE0 /* Support files */ = {
+			isa = PBXGroup;
+			children = (
+				E40C29AD2821037F00981DE0 /* GoogleService-Info.plist */,
+				E43B1291281FF36600D88544 /* Info.plist */,
+			);
+			path = "Support files";
+			sourceTree = "<group>";
+		};
+		E40C29B02821038E00981DE0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E43B128C281FF36600D88544 /* Assets.xcassets */,
+				E43B128E281FF36600D88544 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		E43B1277281FF36200D88544 = {
 			isa = PBXGroup;
 			children = (
 				E47BCE3C282007DF00D01BBF /* .swiftformat */,
-				E47BCE3E2820112500D01BBF /* .swiftlint */,
+				E40C29B128210C1900981DE0 /* .swiftlint.yml */,
 				E43B1282281FF36200D88544 /* LoginProcess */,
 				E43B1281281FF36200D88544 /* Products */,
 				D2650880B9E8955A747E278E /* Pods */,
@@ -108,18 +126,16 @@
 		E43B1282281FF36200D88544 /* LoginProcess */ = {
 			isa = PBXGroup;
 			children = (
+				E43B1283281FF36200D88544 /* AppDelegate.swift */,
+				E43B1285281FF36200D88544 /* SceneDelegate.swift */,
+				E40C29B02821038E00981DE0 /* Resources */,
+				E40C29AF2821038600981DE0 /* Support files */,
 				E43B129C281FF3E700D88544 /* API */,
 				E43B129E281FF3F200D88544 /* Utility */,
 				E43B129B281FF3C100D88544 /* Model */,
 				E43B129A281FF3BF00D88544 /* View */,
 				E43B1297281FF3AD00D88544 /* ViewModel */,
 				E43B129D281FF3EA00D88544 /* Controller */,
-				E43B1283281FF36200D88544 /* AppDelegate.swift */,
-				E43B1285281FF36200D88544 /* SceneDelegate.swift */,
-				E43B1287281FF36200D88544 /* ViewController.swift */,
-				E43B128C281FF36600D88544 /* Assets.xcassets */,
-				E43B128E281FF36600D88544 /* LaunchScreen.storyboard */,
-				E43B1291281FF36600D88544 /* Info.plist */,
 			);
 			path = LoginProcess;
 			sourceTree = "<group>";
@@ -191,6 +207,7 @@
 				E43B127C281FF36200D88544 /* Sources */,
 				E43B127D281FF36200D88544 /* Frameworks */,
 				E43B127E281FF36200D88544 /* Resources */,
+				AA8E3B5DE02116BB131D61D8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -239,8 +256,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E47BCE3F2820112500D01BBF /* .swiftlint in Resources */,
+				E40C29B228210C1900981DE0 /* .swiftlint.yml in Resources */,
 				E43B1290281FF36600D88544 /* LaunchScreen.storyboard in Resources */,
+				E40C29AE2821037F00981DE0 /* GoogleService-Info.plist in Resources */,
 				E43B128D281FF36600D88544 /* Assets.xcassets in Resources */,
 				E47BCE3D282007DF00D01BBF /* .swiftformat in Resources */,
 			);
@@ -249,6 +267,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		AA8E3B5DE02116BB131D61D8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LoginProcess/Pods-LoginProcess-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LoginProcess/Pods-LoginProcess-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LoginProcess/Pods-LoginProcess-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E47BCE34282005DB00D01BBF /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -322,7 +357,6 @@
 				E40C29A62820E5A800981DE0 /* UIImage+Extensions.swift in Sources */,
 				E4198F292820C2E9003CFE0A /* RegistrationController.swift in Sources */,
 				E47BCE412820127B00D01BBF /* TextInput.swift in Sources */,
-				E43B1288281FF36200D88544 /* ViewController.swift in Sources */,
 				E40C29A42820E32200981DE0 /* UIViewController+Extensions.swift in Sources */,
 				E40C29AC2820F0C600981DE0 /* UIColor+Extensions.swift in Sources */,
 				E43B1284281FF36200D88544 /* AppDelegate.swift in Sources */,
@@ -470,7 +504,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FCQD35AW5P;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = LoginProcess/Info.plist;
+				INFOPLIST_FILE = "LoginProcess/Support files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -498,7 +532,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FCQD35AW5P;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = LoginProcess/Info.plist;
+				INFOPLIST_FILE = "LoginProcess/Support files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
