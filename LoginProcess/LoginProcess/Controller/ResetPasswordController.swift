@@ -1,5 +1,5 @@
 //
-//  RegistrationController.swift
+//  ResetPasswordController.swift
 //  LoginProcess
 //
 //  Created by 송태환 on 2022/05/03.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RegistrationController: UIViewController {
+class ResetPasswordController: UIViewController {
     private let gradientLayer = CAGradientLayer()
 
     private let contentView = UIView()
@@ -20,54 +20,19 @@ class RegistrationController: UIViewController {
         return textField
     }()
 
-    private let fullnameTextField: TextInput = {
-        let textField = TextInput()
-        textField.setPlaceholder("Fullname")
-        return textField
-    }()
-
-    private let passwordTextField: TextInput = {
-        let textField = TextInput()
-        textField.isSecureTextEntry = true
-        textField.setPlaceholder("Password")
-        return textField
-    }()
-
-    private lazy var signUpButton: AuthButton = {
+    private lazy var resetPasswordButton: AuthButton = {
         let button = AuthButton(type: .system)
-        button.isEnabled = false
-        button.setTitle("Sign Up", for: .normal)
+        button.setTitle("Reset Password", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-        button.addAction(UIAction(handler: self.handleSignUp), for: .touchUpInside)
+        button.addAction(UIAction(handler: self.handleResetPassword), for: .touchUpInside)
         return button
     }()
 
-    private lazy var alreadyHaveAccountButton: UIButton = {
+    private lazy var backButton: UIButton = {
         let button = UIButton(type: .system)
-
-        let attributesForTitle: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor(white: 1, alpha: 0.87),
-            .font: UIFont.systemFont(ofSize: 15)
-        ]
-
-        let attributedTitle = NSMutableAttributedString(
-            string: "Already have an account? ",
-            attributes: attributesForTitle
-        )
-
-        let boldAttribute: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor(white: 1, alpha: 0.87),
-            .font: UIFont.boldSystemFont(ofSize: 16)
-        ]
-
-        attributedTitle.append(NSAttributedString(string: "Log In", attributes: boldAttribute))
-
-        button.setAttributedTitle(attributedTitle, for: .normal)
-        button.addAction(UIAction(handler: self.handleLogin), for: .touchUpInside)
-
-        button.titleLabel?.adjustsFontSizeToFitWidth = true
-        button.titleLabel?.minimumScaleFactor = 0.5
-
+        button.tintColor = .systemBackground
+        button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+        button.addAction(UIAction(handler: self.handleDismissal), for: .touchUpInside)
         return button
     }()
 
@@ -83,14 +48,11 @@ class RegistrationController: UIViewController {
         self.gradientLayer.frame = self.view.bounds
     }
 
-    // MARK: - Action Method
+    // MARK: - Actions
 
-    private func handleSignUp(_: UIAction) {
-        print("DEBUG: SignUp")
-    }
+    private func handleResetPassword(_: UIAction) {}
 
-    private func handleLogin(_: UIAction) {
-        print("DEBUG: SignIn")
+    private func handleDismissal(_: UIAction) {
         self.navigationController?.popViewController(animated: true)
     }
 
@@ -99,8 +61,19 @@ class RegistrationController: UIViewController {
     private func configureUI() {
         self.configureGradientBackground(layer: self.gradientLayer)
         self.configureScrollView()
+        self.configureBackButton()
         self.configureIconImage()
         self.configureTextFields()
+    }
+
+    private func configureBackButton() {
+        self.contentView.addSubview(self.backButton)
+        self.backButton.anchor(
+            top: self.view.safeAreaLayoutGuide.topAnchor,
+            leading: self.view.safeAreaLayoutGuide.leadingAnchor,
+            paddingTop: 16,
+            paddingLeft: 16
+        )
     }
 
     private func configureScrollView() {
@@ -127,9 +100,7 @@ class RegistrationController: UIViewController {
     private func configureTextFields() {
         let stackView = UIStackView(arrangedSubviews: [
             emailTextField,
-            passwordTextField,
-            fullnameTextField,
-            signUpButton
+            resetPasswordButton
         ])
 
         stackView.axis = .vertical
@@ -145,18 +116,5 @@ class RegistrationController: UIViewController {
             paddingLeft: 32,
             paddingRight: 32
         )
-
-        self.contentView.addSubview(self.alreadyHaveAccountButton)
-
-        self.alreadyHaveAccountButton.centerX(inView: self.contentView)
-        self.alreadyHaveAccountButton.anchor(
-            bottom: self.contentView.safeAreaLayoutGuide.bottomAnchor,
-            paddingBottom: 5
-        )
-
-        self.alreadyHaveAccountButton.topAnchor.constraint(
-            greaterThanOrEqualTo: stackView.bottomAnchor,
-            constant: 20
-        ).isActive = true
     }
 }

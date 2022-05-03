@@ -12,7 +12,7 @@ class LoginController: UIViewController {
 
     private let contentView = UIView()
 
-    private let iconImage = UIImageView(image: #imageLiteral(resourceName: "firebase-logo"))
+    private let iconImage = UIImageView(image: .appLogo)
 
     private let emailTextField: TextInput = {
         let textField = TextInput()
@@ -53,10 +53,13 @@ class LoginController: UIViewController {
             .font: UIFont.boldSystemFont(ofSize: 15)
         ]
 
-        attributedTitle.append(NSAttributedString(string: "Get help signing in.", attributes: boldAttribute))
+        attributedTitle.append(NSAttributedString(string: "Get help signing in", attributes: boldAttribute))
 
         button.setAttributedTitle(attributedTitle, for: .normal)
         button.addAction(UIAction(handler: self.showForgetPassword), for: .touchUpInside)
+
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.titleLabel?.minimumScaleFactor = 0.5
 
         return button
     }()
@@ -65,7 +68,7 @@ class LoginController: UIViewController {
 
     private lazy var googleLoginButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "btn_google_light_pressed_ios").withRenderingMode(.alwaysOriginal), for: .normal)
+        button.setImage(UIImage.google.withRenderingMode(.alwaysOriginal), for: .normal)
         button.setTitle(" Log in with Google", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
@@ -97,6 +100,9 @@ class LoginController: UIViewController {
         button.setAttributedTitle(attributedTitle, for: .normal)
         button.addAction(UIAction(handler: self.showRegistrationController), for: .touchUpInside)
 
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.titleLabel?.minimumScaleFactor = 0.5
+
         return button
     }()
 
@@ -121,7 +127,8 @@ class LoginController: UIViewController {
     }
 
     private func showForgetPassword(_: UIAction) {
-        print("DEBUG: Show forget password controller")
+        let controller = ResetPasswordController()
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 
     private func showRegistrationController(_: UIAction) {
@@ -135,17 +142,10 @@ class LoginController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         self.navigationController?.navigationBar.barStyle = .black
 
-        self.configureBackground()
+        self.configureGradientBackground(layer: self.gradientLayer)
         self.configureScrollView()
         self.configureIconImage()
         self.configureTextFields()
-    }
-
-    private func configureBackground() {
-        self.gradientLayer.colors = [UIColor.systemPurple.cgColor, UIColor.systemBlue.cgColor]
-        self.gradientLayer.locations = [0, 1]
-        self.view.layer.addSublayer(self.gradientLayer)
-        self.gradientLayer.frame = view.bounds
     }
 
     private func configureScrollView() {
@@ -213,7 +213,11 @@ class LoginController: UIViewController {
         self.contentView.addSubview(self.dontHaveAccountButton)
 
         self.dontHaveAccountButton.centerX(inView: self.contentView)
-        self.dontHaveAccountButton.anchor(bottom: self.contentView.safeAreaLayoutGuide.bottomAnchor)
+        self.dontHaveAccountButton.anchor(
+            bottom: self.contentView.safeAreaLayoutGuide.bottomAnchor,
+            paddingBottom: 5
+        )
+
         self.dontHaveAccountButton.topAnchor.constraint(
             greaterThanOrEqualTo: bottomStackView.bottomAnchor,
             constant: 20
