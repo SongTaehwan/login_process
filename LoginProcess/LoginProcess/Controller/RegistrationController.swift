@@ -62,26 +62,63 @@ class RegistrationController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureUI()
+        self.configureActions()
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.gradientLayer.frame = self.view.bounds
     }
+}
 
-    // MARK: - Action Method
+// MARK: - TextField
 
+extension RegistrationController {
+    private func updateForm() {
+        self.signUpButton.isEnabled = self.viewModel?.shouldButtonEnable ?? false
+        self.signUpButton.backgroundColor = self.viewModel?.buttonBackground
+        self.signUpButton.setTitleColor(self.viewModel?.buttonTitleColor, for: .normal)
+    }
+
+    private func configureActions() {
+        self.emailTextField.addTarget(self, action: #selector(self.textDidChange), for: .editingChanged)
+        self.passwordTextField.addTarget(self, action: #selector(self.textDidChange), for: .editingChanged)
+        self.fullnameTextField.addTarget(self, action: #selector(self.textDidChange), for: .editingChanged)
+    }
+}
+
+// MARK: - Actions
+
+extension RegistrationController {
     private func handleSignUp(_: UIAction) {
         print("DEBUG: SignUp")
     }
 
     private func handleLogin(_: UIAction) {
-        print("DEBUG: SignIn")
         self.navigationController?.popViewController(animated: true)
     }
 
-    // MARK: - UI Configuration
+    @objc private func textDidChange(_ sender: TextInput) {
+        guard let text = sender.text else { return }
 
+        switch sender {
+        case self.emailTextField:
+            self.viewModel?.email = text
+        case self.passwordTextField:
+            self.viewModel?.password = text
+        case self.fullnameTextField:
+            self.viewModel?.fullname = text
+        default:
+            return
+        }
+
+        self.updateForm()
+    }
+}
+
+// MARK: - UI Configuration
+
+extension RegistrationController {
     private func configureUI() {
         self.configureGradientBackground(layer: self.gradientLayer)
         self.configureScrollView()

@@ -43,23 +43,48 @@ class ResetPasswordController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureUI()
+        self.configureActions()
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.gradientLayer.frame = self.view.bounds
     }
+}
 
-    // MARK: - Actions
+// MARK: - TextFields
 
+extension ResetPasswordController {
+    private func updateForm() {
+        self.resetPasswordButton.isEnabled = self.viewModel?.shouldButtonEnable ?? false
+        self.resetPasswordButton.backgroundColor = self.viewModel?.buttonBackground
+        self.resetPasswordButton.setTitleColor(self.viewModel?.buttonTitleColor, for: .normal)
+    }
+
+    private func configureActions() {
+        self.emailTextField.addTarget(self, action: #selector(self.textDidChange), for: .editingChanged)
+    }
+}
+
+// MARK: - Actions
+
+extension ResetPasswordController {
     private func handleResetPassword(_: UIAction) {}
 
     private func handleDismissal(_: UIAction) {
         self.navigationController?.popViewController(animated: true)
     }
 
-    // MARK: - UI Configuration
+    @objc private func textDidChange(_ sender: TextInput) {
+        guard let text = sender.text else { return }
+        self.viewModel?.email = text
+        self.updateForm()
+    }
+}
 
+// MARK: - UI Configuration
+
+extension ResetPasswordController {
     private func configureUI() {
         self.configureGradientBackground(layer: self.gradientLayer)
         self.configureScrollView()

@@ -80,13 +80,33 @@ class LoginController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureUI()
+        self.configureActions()
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.gradientLayer.frame = self.view.bounds
     }
+}
 
+// MARK: - TextFields
+
+extension LoginController {
+    private func updateForm() {
+        self.loginButton.isEnabled = self.viewModel?.shouldButtonEnable ?? false
+        self.loginButton.backgroundColor = self.viewModel?.buttonBackground
+        self.loginButton.setTitleColor(self.viewModel?.buttonTitleColor, for: .normal)
+    }
+
+    private func configureActions() {
+        self.emailTextField.addTarget(self, action: #selector(self.textDidChange), for: .editingChanged)
+        self.passwordTextField.addTarget(self, action: #selector(self.textDidChange), for: .editingChanged)
+    }
+}
+
+// MARK: - Actions
+
+extension LoginController {
     private func handleLogin(_: UIAction) {
         print("DEBUG: Login")
     }
@@ -107,8 +127,21 @@ class LoginController: UIViewController {
         self.navigationController?.pushViewController(controller, animated: true)
     }
 
-    // MARK: - UI Configuration
+    /// UIAction 은 클로져를 넘길 수 있다는 장점있음 때문에 Sender 정보가 없는 듯 함
+    @objc private func textDidChange(_ sender: TextInput) {
+        if sender === self.emailTextField {
+            self.viewModel?.email = sender.text
+        } else {
+            self.viewModel?.password = sender.text
+        }
 
+        self.updateForm()
+    }
+}
+
+// MARK: - UI Configuration
+
+extension LoginController {
     private func configureUI() {
         self.navigationController?.navigationBar.isHidden = true
         self.navigationController?.navigationBar.barStyle = .black
