@@ -44,6 +44,5 @@
 --enable linebreakAtEndOfFile
 --enable redundantGet
 --enable redundantInit
---enable redundantLet
 --enable redundantNilInit
 --enable redundantParens

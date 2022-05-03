@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  LoginController.swift
 //  LoginProcess
 //
 //  Created by 송태환 on 2022/05/02.
@@ -7,11 +7,8 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
-    private let scrollView: UIScrollView = {
-        let scroll = UIScrollView()
-        return scroll
-    }()
+class LoginController: UIViewController {
+    private let gradientLayer = CAGradientLayer()
 
     private let contentView = UIView()
 
@@ -98,12 +95,10 @@ class LoginViewController: UIViewController {
         attributedTitle.append(NSAttributedString(string: "Sign Up", attributes: boldAttribute))
 
         button.setAttributedTitle(attributedTitle, for: .normal)
-        button.addAction(UIAction(handler: self.showForgetPassword), for: .touchUpInside)
+        button.addAction(UIAction(handler: self.showRegistrationController), for: .touchUpInside)
 
         return button
     }()
-
-    private let gradientLayer = CAGradientLayer()
 
     // MARK: - Lifecycle
 
@@ -117,13 +112,21 @@ class LoginViewController: UIViewController {
         self.gradientLayer.frame = self.view.bounds
     }
 
-    private func handleLogin(_: UIAction) {}
+    private func handleLogin(_: UIAction) {
+        print("DEBUG: Login")
+    }
+
     private func handleGoogleLogin(_: UIAction) {
-        print("Login with google")
+        print("DEBUG: Login with google")
     }
 
     private func showForgetPassword(_: UIAction) {
-        print("Print")
+        print("DEBUG: Show forget password controller")
+    }
+
+    private func showRegistrationController(_: UIAction) {
+        let controller = RegistrationController()
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 
     // MARK: - UI Configuration
@@ -146,15 +149,16 @@ class LoginViewController: UIViewController {
     }
 
     private func configureScrollView() {
-        self.view.addSubview(self.scrollView)
-        self.scrollView.addSubview(self.contentView)
-        self.scrollView.fill(inView: self.view.safeAreaLayoutGuide)
-        self.contentView.fill(inView: self.scrollView.contentLayoutGuide)
-        self.contentView.setWidth(toAnchor: self.scrollView.frameLayoutGuide.widthAnchor)
+        let scrollView = UIScrollView()
+        self.view.addSubview(scrollView)
+        scrollView.addSubview(self.contentView)
+        scrollView.fill(inView: self.view.safeAreaLayoutGuide)
+        self.contentView.fill(inView: scrollView.contentLayoutGuide)
+        self.contentView.setWidth(toAnchor: scrollView.frameLayoutGuide.widthAnchor)
 
         // 최소 크기가 화면 전체
         self.contentView.heightAnchor.constraint(
-            greaterThanOrEqualTo: self.scrollView.frameLayoutGuide.heightAnchor
+            greaterThanOrEqualTo: scrollView.frameLayoutGuide.heightAnchor
         ).isActive = true
     }
 
