@@ -14,5 +14,6 @@ target 'LoginProcess' do
   pod 'JGProgressHUD'
   pod 'paper-onboarding'
   pod 'GoogleSignIn'
+  pod 'Firebase/Database'
 
 end

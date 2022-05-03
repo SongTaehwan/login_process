@@ -5,6 +5,9 @@
 //  Created by 송태환 on 2022/05/03.
 //
 
+import FirebaseAuth
+import FirebaseDatabase
+
 import UIKit
 
 class RegistrationController: UIViewController {
@@ -91,7 +94,29 @@ extension RegistrationController {
 
 extension RegistrationController {
     private func handleSignUp(_: UIAction) {
-        print("DEBUG: SignUp")
+        guard let email = self.viewModel?.email else { return }
+        guard let password = self.viewModel?.password else { return }
+        guard let fullname = self.viewModel?.fullname else { return }
+
+        Auth.auth().createUser(withEmail: email, password: password) { result, error in
+            guard let result = result, error == nil else {
+                print("DEBUG: fail to create user: \(String(describing: error?.localizedDescription))")
+                return
+            }
+
+            let uid = result.user.uid
+            let userData = ["email": email, "fullname": fullname]
+
+            // TODO: Refactor
+            Database.database().reference().child("users").child(uid).updateChildValues(userData) { error, _ in
+                guard error == nil else {
+                    print("DEBUG: fail to update user: \(String(describing: error?.localizedDescription))")
+                    return
+                }
+
+                print("Success!")
+            }
+        }
     }
 
     private func handleLogin(_: UIAction) {
