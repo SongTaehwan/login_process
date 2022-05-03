@@ -36,6 +36,8 @@ class ResetPasswordController: UIViewController {
         return button
     }()
 
+    var viewModel: ResetPasswordViewModel?
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {

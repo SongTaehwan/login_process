@@ -18,4 +18,4 @@ struct LoginViewModel {
 
 struct RegistrationViewModel {}
 
-struct ForgetPasswordViewMode {}
+struct ResetPasswordViewModel {}

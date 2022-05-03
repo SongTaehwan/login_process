@@ -97,11 +97,13 @@ class LoginController: UIViewController {
 
     private func showForgetPassword(_: UIAction) {
         let controller = ResetPasswordController()
+        controller.viewModel = ResetPasswordViewModel()
         self.navigationController?.pushViewController(controller, animated: true)
     }
 
     private func showRegistrationController(_: UIAction) {
         let controller = RegistrationController()
+        controller.viewModel = RegistrationViewModel()
         self.navigationController?.pushViewController(controller, animated: true)
     }
 
