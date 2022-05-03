@@ -35,31 +35,14 @@ class LoginController: UIViewController {
         return button
     }()
 
-    private lazy var forgotPasswordButton: UIButton = {
-        let button = UIButton(type: .system)
-
-        let attributesForTitle: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor(white: 1, alpha: 0.87),
-            .font: UIFont.systemFont(ofSize: 15)
-        ]
-
-        let attributedTitle = NSMutableAttributedString(
-            string: "Forgot your password? ",
-            attributes: attributesForTitle
+    private lazy var forgotPasswordButton: LabelButton = {
+        let button = LabelButton(type: .system)
+        button.setAttributedTitle(
+            leftText: "Forgot your password? ",
+            rightText: "Get help sigining in"
         )
 
-        let boldAttribute: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor(white: 1, alpha: 0.87),
-            .font: UIFont.boldSystemFont(ofSize: 15)
-        ]
-
-        attributedTitle.append(NSAttributedString(string: "Get help signing in", attributes: boldAttribute))
-
-        button.setAttributedTitle(attributedTitle, for: .normal)
         button.addAction(UIAction(handler: self.showForgetPassword), for: .touchUpInside)
-
-        button.titleLabel?.adjustsFontSizeToFitWidth = true
-        button.titleLabel?.minimumScaleFactor = 0.5
 
         return button
     }()
@@ -77,34 +60,20 @@ class LoginController: UIViewController {
         return button
     }()
 
-    private lazy var dontHaveAccountButton: UIButton = {
-        let button = UIButton(type: .system)
-
-        let attributesForTitle: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor(white: 1, alpha: 0.87),
-            .font: UIFont.systemFont(ofSize: 15)
-        ]
-
-        let attributedTitle = NSMutableAttributedString(
-            string: "Don't have an account? ",
-            attributes: attributesForTitle
+    private lazy var dontHaveAccountButton: LabelButton = {
+        let button = LabelButton(type: .system)
+        button.setAttributedTitle(
+            leftText: "Don't have an account? ",
+            rightText: "Sign Up",
+            rightTextFont: UIFont.boldSystemFont(ofSize: 16)
         )
 
-        let boldAttribute: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor(white: 1, alpha: 0.87),
-            .font: UIFont.boldSystemFont(ofSize: 16)
-        ]
-
-        attributedTitle.append(NSAttributedString(string: "Sign Up", attributes: boldAttribute))
-
-        button.setAttributedTitle(attributedTitle, for: .normal)
         button.addAction(UIAction(handler: self.showRegistrationController), for: .touchUpInside)
-
-        button.titleLabel?.adjustsFontSizeToFitWidth = true
-        button.titleLabel?.minimumScaleFactor = 0.5
 
         return button
     }()
+
+    var viewModel: LoginViewModel?
 
     // MARK: - Lifecycle
 

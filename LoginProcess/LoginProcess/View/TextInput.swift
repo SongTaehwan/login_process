@@ -23,7 +23,7 @@ class TextInput: UITextField {
     func setPlaceholder(_ placeholder: String = "Text") {
         self.attributedPlaceholder = NSAttributedString(
             string: placeholder,
-            attributes: [.foregroundColor: UIColor(white: 1, alpha: 0.7)]
+            attributes: [.foregroundColor: UIColor.placeholder]
         )
     }
 
@@ -39,8 +39,8 @@ class TextInput: UITextField {
         self.backgroundColor = UIColor(white: 1, alpha: 0.1)
         self.setHeight(50)
         self.attributedPlaceholder = NSAttributedString(
-            string: "Password",
-            attributes: [.foregroundColor: UIColor(white: 1, alpha: 0.7)]
+            string: "Placeholder",
+            attributes: [.foregroundColor: UIColor.placeholder]
         )
     }
 }

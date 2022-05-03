@@ -21,7 +21,7 @@ class Divider: UIView {
     private func configureUI() {
         let label = UILabel()
         label.text = "OR"
-        label.textColor = UIColor(white: 1, alpha: 0.87)
+        label.textColor = UIColor.label
         label.font = UIFont.systemFont(ofSize: 14)
 
         self.addSubview(label)
@@ -29,7 +29,7 @@ class Divider: UIView {
         label.center(inView: self)
 
         let dividerLeft = UIView()
-        dividerLeft.backgroundColor = UIColor(white: 1, alpha: 0.25)
+        dividerLeft.backgroundColor = UIColor.divider
 
         self.addSubview(dividerLeft)
 
@@ -43,7 +43,7 @@ class Divider: UIView {
         )
 
         let dividerRight = UIView()
-        dividerRight.backgroundColor = UIColor(white: 1, alpha: 0.25)
+        dividerRight.backgroundColor = UIColor.divider
 
         self.addSubview(dividerRight)
 

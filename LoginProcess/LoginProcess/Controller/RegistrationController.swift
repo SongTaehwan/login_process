@@ -42,31 +42,15 @@ class RegistrationController: UIViewController {
         return button
     }()
 
-    private lazy var alreadyHaveAccountButton: UIButton = {
-        let button = UIButton(type: .system)
-
-        let attributesForTitle: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor(white: 1, alpha: 0.87),
-            .font: UIFont.systemFont(ofSize: 15)
-        ]
-
-        let attributedTitle = NSMutableAttributedString(
-            string: "Already have an account? ",
-            attributes: attributesForTitle
+    private lazy var alreadyHaveAccountButton: LabelButton = {
+        let button = LabelButton(type: .system)
+        button.setAttributedTitle(
+            leftText: "Already have an account? ",
+            rightText: "Log In",
+            rightTextFont: UIFont.boldSystemFont(ofSize: 16)
         )
 
-        let boldAttribute: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor(white: 1, alpha: 0.87),
-            .font: UIFont.boldSystemFont(ofSize: 16)
-        ]
-
-        attributedTitle.append(NSAttributedString(string: "Log In", attributes: boldAttribute))
-
-        button.setAttributedTitle(attributedTitle, for: .normal)
         button.addAction(UIAction(handler: self.handleLogin), for: .touchUpInside)
-
-        button.titleLabel?.adjustsFontSizeToFitWidth = true
-        button.titleLabel?.minimumScaleFactor = 0.5
 
         return button
     }()

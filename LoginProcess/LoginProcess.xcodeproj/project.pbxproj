@@ -10,6 +10,9 @@
 		0DA9D25C4DAC6B7FC2192FF5 /* Pods_LoginProcess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0014656F7359B6C3F1F6D11 /* Pods_LoginProcess.framework */; };
 		E40C29A42820E32200981DE0 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C29A32820E32200981DE0 /* UIViewController+Extensions.swift */; };
 		E40C29A62820E5A800981DE0 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C29A52820E5A800981DE0 /* UIImage+Extensions.swift */; };
+		E40C29A82820E8AD00981DE0 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C29A72820E8AD00981DE0 /* AuthenticationViewModel.swift */; };
+		E40C29AA2820EEB400981DE0 /* LabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C29A92820EEB400981DE0 /* LabelButton.swift */; };
+		E40C29AC2820F0C600981DE0 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C29AB2820F0C600981DE0 /* UIColor+Extensions.swift */; };
 		E4198F292820C2E9003CFE0A /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4198F282820C2E9003CFE0A /* RegistrationController.swift */; };
 		E4198F2B2820C7A8003CFE0A /* ResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4198F2A2820C7A8003CFE0A /* ResetPasswordController.swift */; };
 		E43B1284281FF36200D88544 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B1283281FF36200D88544 /* AppDelegate.swift */; };
@@ -32,6 +35,9 @@
 		E0014656F7359B6C3F1F6D11 /* Pods_LoginProcess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoginProcess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E40C29A32820E32200981DE0 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		E40C29A52820E5A800981DE0 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		E40C29A72820E8AD00981DE0 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		E40C29A92820EEB400981DE0 /* LabelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelButton.swift; sourceTree = "<group>"; };
+		E40C29AB2820F0C600981DE0 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		E4198F282820C2E9003CFE0A /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		E4198F2A2820C7A8003CFE0A /* ResetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordController.swift; sourceTree = "<group>"; };
 		E43B1280281FF36200D88544 /* LoginProcess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginProcess.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,6 +127,7 @@
 		E43B1297281FF3AD00D88544 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E40C29A72820E8AD00981DE0 /* AuthenticationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -131,6 +138,7 @@
 				E47BCE402820127B00D01BBF /* TextInput.swift */,
 				E47BCE42282014C600D01BBF /* AuthButton.swift */,
 				E4C17FA7282019F400F5D16C /* Divider.swift */,
+				E40C29A92820EEB400981DE0 /* LabelButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -163,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				E43B12A5281FF68D00D88544 /* UIView+Extensions.swift */,
+				E40C29AB2820F0C600981DE0 /* UIColor+Extensions.swift */,
 				E40C29A52820E5A800981DE0 /* UIImage+Extensions.swift */,
 				E40C29A32820E32200981DE0 /* UIViewController+Extensions.swift */,
 			);
@@ -305,7 +314,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E40C29A82820E8AD00981DE0 /* AuthenticationViewModel.swift in Sources */,
 				E43B12A6281FF68D00D88544 /* UIView+Extensions.swift in Sources */,
+				E40C29AA2820EEB400981DE0 /* LabelButton.swift in Sources */,
 				E47BCE43282014C600D01BBF /* AuthButton.swift in Sources */,
 				E43B12A2281FF42800D88544 /* LoginController.swift in Sources */,
 				E40C29A62820E5A800981DE0 /* UIImage+Extensions.swift in Sources */,
@@ -313,6 +324,7 @@
 				E47BCE412820127B00D01BBF /* TextInput.swift in Sources */,
 				E43B1288281FF36200D88544 /* ViewController.swift in Sources */,
 				E40C29A42820E32200981DE0 /* UIViewController+Extensions.swift in Sources */,
+				E40C29AC2820F0C600981DE0 /* UIColor+Extensions.swift in Sources */,
 				E43B1284281FF36200D88544 /* AppDelegate.swift in Sources */,
 				E43B1286281FF36200D88544 /* SceneDelegate.swift in Sources */,
 				E4198F2B2820C7A8003CFE0A /* ResetPasswordController.swift in Sources */,
