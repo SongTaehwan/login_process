@@ -7,10 +7,15 @@
 
 import paper_onboarding
 
+protocol OnboardingControllerDelegate: AnyObject {
+    func onboardingControllerWillDismiss(_ controller: OnboardingController)
+}
+
 class OnboardingController: UIViewController {
     private var onboardingView = PaperOnboarding()
 
     var viewModel = OnboardingViewModel()
+    weak var delegate: OnboardingControllerDelegate?
 
     private lazy var getStartedButton: UIButton = {
         let button = UIButton(type: .system)
@@ -50,7 +55,10 @@ class OnboardingController: UIViewController {
         self.onboardingView.reloadInputViews()
     }
 
-    private func dismissOnboarding(_: UIAction) {}
+    private func dismissOnboarding(_: UIAction) {
+        self.delegate?.onboardingControllerWillDismiss(self)
+        self.dismiss(animated: true)
+    }
 
     private func animateGetStartedButton(show: Bool) {
         let alpha: CGFloat = show ? 1 : 0

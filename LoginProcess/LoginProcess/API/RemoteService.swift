@@ -34,6 +34,8 @@ enum RemoteService {
 
                 Self.signInWithGoogle(user: user, completion: completion)
             }
+
+            return
         }
 
         completion(.success(Self.currentUser != nil))
@@ -101,6 +103,10 @@ enum RemoteService {
     }
 
     static func signOutWithFirebase(completion: @escaping NetworkCompletion) {
+        if GIDSignIn.sharedInstance.hasPreviousSignIn() {
+            GIDSignIn.sharedInstance.signOut()
+        }
+
         do {
             try Auth.auth().signOut()
             completion(.success(true))

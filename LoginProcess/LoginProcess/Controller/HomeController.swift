@@ -11,6 +11,8 @@ import UIKit
 class HomeController: UIViewController {
     private let gradientLayer = CAGradientLayer()
 
+    private var shouldShowOnboarding = true
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureUI()
@@ -42,7 +44,9 @@ class HomeController: UIViewController {
                 return
             }
 
-            print("DEBUG: Already Signed in user")
+            if self.shouldShowOnboarding {
+                self.presentOnboardingController()
+            }
         }
     }
 
@@ -56,9 +60,22 @@ class HomeController: UIViewController {
             completion()
         }
     }
+
+    private func presentOnboardingController() {
+        let controller = OnboardingController()
+        controller.modalPresentationStyle = .fullScreen
+        controller.delegate = self
+        self.present(controller, animated: true)
+    }
 }
 
 // MARK: - Actions
+
+extension HomeController: OnboardingControllerDelegate {
+    func onboardingControllerWillDismiss(_: OnboardingController) {
+        self.shouldShowOnboarding.toggle()
+    }
+}
 
 extension HomeController {
     @objc private func handleLogout(_: UIBarButtonItem) {
