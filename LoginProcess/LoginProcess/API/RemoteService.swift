@@ -15,20 +15,42 @@ typealias NetworkCompletion = (NetworkResult) -> Void
 
 // TODO: Define custom error
 enum RemoteService {
-    static func getAuthenticatedUser() -> User? {
+    static var currentUser: User? {
         Auth.auth().currentUser
+    }
+
+    static func checkAuthenticatedUser(completion: @escaping NetworkCompletion) {
+        if GIDSignIn.sharedInstance.hasPreviousSignIn() {
+            GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+
+                guard let user = user else {
+                    completion(.success(false))
+                    return
+                }
+
+                Self.signInWithGoogle(user: user, completion: completion)
+            }
+        }
+
+        completion(.success(Self.currentUser != nil))
     }
 
     static func signInWithFirebase(email: String, password: String, completion: @escaping NetworkCompletion) {
         Auth.auth().signIn(withEmail: email, password: password) { _, error in
             if let error = error {
                 completion(.failure(error))
+                return
             }
 
             completion(.success(true))
         }
     }
 
+    // TODO: UserCase - 회원 생성 -> DB 회원 추가 -> 로그인
     static func registerUserWithFirebase(email: String, password: String, fullname: String, completion: @escaping NetworkCompletion) {
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if let error = error {
@@ -86,6 +108,4 @@ enum RemoteService {
             completion(.failure(error))
         }
     }
-
-    static func signOutWithGoogle(completion _: @escaping NetworkCompletion) {}
 }

@@ -117,6 +117,7 @@ extension LoginController {
         RemoteService.signInWithFirebase(email: email, password: password) { result in
             if case let .failure(error) = result {
                 print("DEBUG: Fail to sign in: \(String(describing: error.localizedDescription))")
+                return
             }
 
             self.dismiss(animated: true)

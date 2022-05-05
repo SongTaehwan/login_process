@@ -5,6 +5,7 @@
 //  Created by 송태환 on 2022/05/03.
 //
 
+import GoogleSignIn
 import UIKit
 
 class HomeController: UIViewController {
@@ -13,7 +14,6 @@ class HomeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureUI()
-        // load 와 함께 인증 검사
         self.authenticateUser()
     }
 
@@ -29,12 +29,21 @@ class HomeController: UIViewController {
     // MARK: - API Caller
 
     private func authenticateUser() {
-        guard let user = RemoteService.getAuthenticatedUser() else {
-            self.presentLoginController()
-            return
-        }
+        RemoteService.checkAuthenticatedUser { result in
+            if case let .failure(error) = result {
+                print("DEUBG: Fail to check Auth: \(error.localizedDescription)")
+                self.presentLoginController()
+                return
+            }
 
-        print("DEBUG: Already Signed in user: \(user.email)")
+            if case .success(false) = result {
+                print("DEBUG: No signed in")
+                self.presentLoginController()
+                return
+            }
+
+            print("DEBUG: Already Signed in user")
+        }
     }
 
     private func logout(completion: @escaping () -> Void) {

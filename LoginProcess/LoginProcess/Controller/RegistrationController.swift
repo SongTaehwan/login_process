@@ -97,7 +97,7 @@ extension RegistrationController {
         guard let password = self.viewModel?.password else { return }
         guard let fullname = self.viewModel?.fullname else { return }
 
-        self.viewModel.signIn(type: .firebase)
+//        self.viewModel.signIn(type: .firebase)
 
         RemoteService.registerUserWithFirebase(email: email, password: password, fullname: fullname) { result in
             if case let .failure(error) = result {
