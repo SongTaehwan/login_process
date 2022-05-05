@@ -22,6 +22,8 @@
 		E439FEDD2823DDB8002DABE1 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439FEDC2823DDB8002DABE1 /* LoginViewModel.swift */; };
 		E439FEDF2823DDC7002DABE1 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439FEDE2823DDC7002DABE1 /* RegistrationViewModel.swift */; };
 		E439FEE12823DDD9002DABE1 /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439FEE02823DDD9002DABE1 /* ResetPasswordViewModel.swift */; };
+		E439FEE32823E790002DABE1 /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439FEE22823E790002DABE1 /* OnboardingController.swift */; };
+		E439FEE52823EB11002DABE1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439FEE42823EB11002DABE1 /* Constants.swift */; };
 		E43B1284281FF36200D88544 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B1283281FF36200D88544 /* AppDelegate.swift */; };
 		E43B1286281FF36200D88544 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B1285281FF36200D88544 /* SceneDelegate.swift */; };
 		E43B128D281FF36600D88544 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E43B128C281FF36600D88544 /* Assets.xcassets */; };
@@ -52,6 +54,8 @@
 		E439FEDC2823DDB8002DABE1 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		E439FEDE2823DDC7002DABE1 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		E439FEE02823DDD9002DABE1 /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
+		E439FEE22823E790002DABE1 /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
+		E439FEE42823EB11002DABE1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E43B1280281FF36200D88544 /* LoginProcess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginProcess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E43B1283281FF36200D88544 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E43B1285281FF36200D88544 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -143,13 +147,14 @@
 		E43B1282281FF36200D88544 /* LoginProcess */ = {
 			isa = PBXGroup;
 			children = (
+				E439FEE42823EB11002DABE1 /* Constants.swift */,
 				E43B1283281FF36200D88544 /* AppDelegate.swift */,
 				E43B1285281FF36200D88544 /* SceneDelegate.swift */,
+				E43B129E281FF3F200D88544 /* Utility */,
 				E40C29B02821038E00981DE0 /* Resources */,
 				E40C29AF2821038600981DE0 /* Support files */,
 				E439FEDB2823DD80002DABE1 /* UseCases */,
 				E43B129C281FF3E700D88544 /* API */,
-				E43B129E281FF3F200D88544 /* Utility */,
 				E43B129B281FF3C100D88544 /* Model */,
 				E43B129A281FF3BF00D88544 /* View */,
 				E43B1297281FF3AD00D88544 /* ViewModel */,
@@ -202,6 +207,7 @@
 				E4135B2C2821180D0033D61D /* HomeController.swift */,
 				E4198F282820C2E9003CFE0A /* RegistrationController.swift */,
 				E4198F2A2820C7A8003CFE0A /* ResetPasswordController.swift */,
+				E439FEE22823E790002DABE1 /* OnboardingController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -380,8 +386,10 @@
 				E47BCE43282014C600D01BBF /* AuthButton.swift in Sources */,
 				E43B12A2281FF42800D88544 /* LoginController.swift in Sources */,
 				E40C29A62820E5A800981DE0 /* UIImage+Extensions.swift in Sources */,
+				E439FEE32823E790002DABE1 /* OnboardingController.swift in Sources */,
 				E4198F292820C2E9003CFE0A /* RegistrationController.swift in Sources */,
 				E47BCE412820127B00D01BBF /* TextInput.swift in Sources */,
+				E439FEE52823EB11002DABE1 /* Constants.swift in Sources */,
 				E40C29A42820E32200981DE0 /* UIViewController+Extensions.swift in Sources */,
 				E439FEDA2823C128002DABE1 /* RemoteService.swift in Sources */,
 				E439FEDD2823DDB8002DABE1 /* LoginViewModel.swift in Sources */,
