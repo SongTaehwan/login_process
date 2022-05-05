@@ -8,8 +8,9 @@
 import paper_onboarding
 
 class OnboardingController: UIViewController {
-    private var onboardingItems = [OnboardingItemInfo]()
     private var onboardingView = PaperOnboarding()
+
+    var viewModel = OnboardingViewModel()
 
     private lazy var getStartedButton: UIButton = {
         let button = UIButton(type: .system)
@@ -40,9 +41,9 @@ class OnboardingController: UIViewController {
 
         let thirdItem = OnboardingItemInfo(informationImage: .grid, title: Onboarding.notifications, description: Onboarding.notificationDescription, pageIcon: UIImage(), color: .systemPink, titleColor: .white, descriptionColor: .white, titleFont: .boldSystemFont(ofSize: 24), descriptionFont: .systemFont(ofSize: 16))
 
-        self.onboardingItems.append(firstItem)
-        self.onboardingItems.append(secondItem)
-        self.onboardingItems.append(thirdItem)
+        self.viewModel.append(firstItem)
+        self.viewModel.append(secondItem)
+        self.viewModel.append(thirdItem)
 
         self.onboardingView.delegate = self
         self.onboardingView.dataSource = self
@@ -62,18 +63,18 @@ class OnboardingController: UIViewController {
 
 extension OnboardingController: PaperOnboardingDelegate {
     func onboardingWillTransitonToIndex(_ index: Int) {
-        let shouldShow = index == self.onboardingItems.count - 1
+        let shouldShow = self.viewModel.shouldShowGetStartedButton(forIndex: index)
         self.animateGetStartedButton(show: shouldShow)
     }
 }
 
 extension OnboardingController: PaperOnboardingDataSource {
     func onboardingItemsCount() -> Int {
-        self.onboardingItems.count
+        self.viewModel.itemCount
     }
 
     func onboardingItem(at index: Int) -> OnboardingItemInfo {
-        self.onboardingItems[index]
+        self.viewModel.getItem(at: index)
     }
 }
 
