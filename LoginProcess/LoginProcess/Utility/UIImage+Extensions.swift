@@ -17,4 +17,6 @@ extension UIImage {
     static let photo = #imageLiteral(resourceName: "plus_photo")
     static let graph = #imageLiteral(resourceName: "baseline_insert_chart_white_48pt")
     static let grid = #imageLiteral(resourceName: "baseline_dashboard_white_48pt")
+    static let chevronLeft = UIImage(systemName: "chevron.left")
+    static let arrowLeft = UIImage(systemName: "arrow.left")
 }

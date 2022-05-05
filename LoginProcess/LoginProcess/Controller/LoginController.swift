@@ -5,6 +5,7 @@
 //  Created by 송태환 on 2022/05/02.
 //
 
+import FirebaseAuth
 import UIKit
 
 class LoginController: UIViewController {
@@ -17,6 +18,8 @@ class LoginController: UIViewController {
     private let emailTextField: TextInput = {
         let textField = TextInput()
         textField.setPlaceholder("Email")
+        textField.keyboardType = .emailAddress
+        textField.autocapitalizationType = .none
         return textField
     }()
 
@@ -108,7 +111,16 @@ extension LoginController {
 
 extension LoginController {
     private func handleLogin(_: UIAction) {
-        print("DEBUG: Login")
+        guard let email = self.viewModel?.email, let password = self.viewModel?.password else { return }
+
+        Auth.auth().signIn(withEmail: email, password: password) { _, error in
+            guard error == nil else {
+                print("DEBUG: Fail to sign in: \(String(describing: error?.localizedDescription))")
+                return
+            }
+
+            self.dismiss(animated: true)
+        }
     }
 
     private func handleGoogleLogin(_: UIAction) {
