@@ -15,7 +15,7 @@ typealias NetworkCompletion = (NetworkResult) -> Void
 
 // TODO: Define custom error
 enum RemoteService {
-    static var currentUser: User? {
+    static var currentUser: Firebase.User? {
         Auth.auth().currentUser
     }
 
@@ -66,7 +66,7 @@ enum RemoteService {
             }
 
             let uid = result.user.uid
-            let userData = ["email": email, "fullname": fullname]
+            let userData: [String: Any] = ["email": email, "fullname": fullname, "hasSeenOnboarding": false]
             Self.updateUser(uid: uid, data: userData, completion: completion)
         }
     }
@@ -97,7 +97,7 @@ enum RemoteService {
             }
 
             guard let user = result?.user else { return }
-            let userData = ["email": user.email, "fullname": user.displayName]
+            let userData: [String: Any] = ["email": user.email, "fullname": user.displayName, "hasSeenOnboarding": false]
             Self.updateUser(uid: user.uid, data: userData, completion: completion)
         }
     }
@@ -112,6 +112,19 @@ enum RemoteService {
             completion(.success(true))
         } catch {
             completion(.failure(error))
+        }
+    }
+
+    static func fetchUser(completion: @escaping (Result<User, Error>) -> Void) {
+        guard let uid = Self.currentUser?.uid else { return }
+        Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value) { snapshot in
+            let uid = snapshot.key
+            guard let dictionary = snapshot.value as? [String: Any] else {
+                return
+            }
+
+            let user = User(uid: uid, dictionary: dictionary)
+            completion(.success(user))
         }
     }
 }

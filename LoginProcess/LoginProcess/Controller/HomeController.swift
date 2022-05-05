@@ -19,6 +19,13 @@ class HomeController: UIViewController {
         self.authenticateUser()
     }
 
+    private func presentOnboardingController() {
+        let controller = OnboardingController()
+        controller.modalPresentationStyle = .fullScreen
+        controller.delegate = self
+        self.present(controller, animated: true)
+    }
+
     private func presentLoginController() {
         let controller = LoginController()
         // Navigation 으로 감싸야 뒤로가기 막을 수 있음
@@ -29,6 +36,17 @@ class HomeController: UIViewController {
     }
 
     // MARK: - API Caller
+
+    private func fetchUser() {
+        RemoteService.fetchUser { result in
+            if case let .failure(error) = result {
+                print("DEBUG: Fail to fetch user: \(error)")
+                return
+            }
+
+            print("User data fetched")
+        }
+    }
 
     private func authenticateUser() {
         RemoteService.checkAuthenticatedUser { result in
@@ -44,9 +62,7 @@ class HomeController: UIViewController {
                 return
             }
 
-            if self.shouldShowOnboarding {
-                self.presentOnboardingController()
-            }
+            self.fetchUser()
         }
     }
 
@@ -59,13 +75,6 @@ class HomeController: UIViewController {
 
             completion()
         }
-    }
-
-    private func presentOnboardingController() {
-        let controller = OnboardingController()
-        controller.modalPresentationStyle = .fullScreen
-        controller.delegate = self
-        self.present(controller, animated: true)
     }
 }
 

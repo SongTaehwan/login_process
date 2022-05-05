@@ -25,6 +25,7 @@
 		E439FEE32823E790002DABE1 /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439FEE22823E790002DABE1 /* OnboardingController.swift */; };
 		E439FEE52823EB11002DABE1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439FEE42823EB11002DABE1 /* Constants.swift */; };
 		E439FEE72823F202002DABE1 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439FEE62823F202002DABE1 /* OnboardingViewModel.swift */; };
+		E439FEE92823F90E002DABE1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439FEE82823F90E002DABE1 /* User.swift */; };
 		E43B1284281FF36200D88544 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B1283281FF36200D88544 /* AppDelegate.swift */; };
 		E43B1286281FF36200D88544 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B1285281FF36200D88544 /* SceneDelegate.swift */; };
 		E43B128D281FF36600D88544 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E43B128C281FF36600D88544 /* Assets.xcassets */; };
@@ -58,6 +59,7 @@
 		E439FEE22823E790002DABE1 /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
 		E439FEE42823EB11002DABE1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E439FEE62823F202002DABE1 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		E439FEE82823F90E002DABE1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E43B1280281FF36200D88544 /* LoginProcess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginProcess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E43B1283281FF36200D88544 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E43B1285281FF36200D88544 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 		E43B129B281FF3C100D88544 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E439FEE82823F90E002DABE1 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				E439FEE72823F202002DABE1 /* OnboardingViewModel.swift in Sources */,
 				E4C17FA8282019F400F5D16C /* Divider.swift in Sources */,
 				E4135B2D2821180D0033D61D /* HomeController.swift in Sources */,
+				E439FEE92823F90E002DABE1 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
