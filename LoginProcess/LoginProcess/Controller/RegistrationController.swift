@@ -5,9 +5,6 @@
 //  Created by 송태환 on 2022/05/03.
 //
 
-import FirebaseAuth
-import FirebaseDatabase
-
 import UIKit
 
 class RegistrationController: UIViewController {
@@ -20,6 +17,8 @@ class RegistrationController: UIViewController {
     private let emailTextField: TextInput = {
         let textField = TextInput()
         textField.setPlaceholder("Email")
+        textField.keyboardType = .emailAddress
+        textField.autocapitalizationType = .none
         return textField
     }()
 
@@ -98,24 +97,15 @@ extension RegistrationController {
         guard let password = self.viewModel?.password else { return }
         guard let fullname = self.viewModel?.fullname else { return }
 
-        Auth.auth().createUser(withEmail: email, password: password) { result, error in
-            guard let result = result, error == nil else {
-                print("DEBUG: fail to create user: \(String(describing: error?.localizedDescription))")
+        self.viewModel.signIn(type: .firebase)
+
+        RemoteService.registerUserWithFirebase(email: email, password: password, fullname: fullname) { result in
+            if case let .failure(error) = result {
+                print("DEBUG: Register fail: \(String(describing: error.localizedDescription))")
                 return
             }
 
-            let uid = result.user.uid
-            let userData = ["email": email, "fullname": fullname]
-
-            // TODO: Refactor
-            Database.database().reference().child("users").child(uid).updateChildValues(userData) { error, _ in
-                guard error == nil else {
-                    print("DEBUG: fail to update user: \(String(describing: error?.localizedDescription))")
-                    return
-                }
-
-                print("Success!")
-            }
+            self.dismiss(animated: true)
         }
     }
 

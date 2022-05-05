@@ -5,7 +5,6 @@
 //  Created by 송태환 on 2022/05/03.
 //
 
-import FirebaseAuth
 import UIKit
 
 class HomeController: UIViewController {
@@ -30,7 +29,7 @@ class HomeController: UIViewController {
     // MARK: - API Caller
 
     private func authenticateUser() {
-        guard let user = Auth.auth().currentUser else {
+        guard let user = RemoteService.getAuthenticatedUser() else {
             self.presentLoginController()
             return
         }
@@ -39,11 +38,13 @@ class HomeController: UIViewController {
     }
 
     private func logout(completion: @escaping () -> Void) {
-        do {
-            try Auth.auth().signOut()
+        RemoteService.signOutWithFirebase { result in
+            if case let .failure(error) = result {
+                print("DEBUG: fail to sign out from firebase: \(error.localizedDescription)")
+                return
+            }
+
             completion()
-        } catch {
-            print("DEBUG: fail to logout \(error.localizedDescription)")
         }
     }
 }
@@ -57,7 +58,6 @@ extension HomeController {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         let logoutAction = UIAlertAction(title: "Sign Out", style: .destructive) { [weak self] _ in
             self?.logout(completion: {
-                // TODO: Error handling
                 self?.presentLoginController()
             })
         }

@@ -5,7 +5,8 @@
 //  Created by 송태환 on 2022/05/02.
 //
 
-import FirebaseAuth
+import Firebase
+import GoogleSignIn
 import UIKit
 
 class LoginController: UIViewController {
@@ -113,10 +114,9 @@ extension LoginController {
     private func handleLogin(_: UIAction) {
         guard let email = self.viewModel?.email, let password = self.viewModel?.password else { return }
 
-        Auth.auth().signIn(withEmail: email, password: password) { _, error in
-            guard error == nil else {
-                print("DEBUG: Fail to sign in: \(String(describing: error?.localizedDescription))")
-                return
+        RemoteService.signInWithFirebase(email: email, password: password) { result in
+            if case let .failure(error) = result {
+                print("DEBUG: Fail to sign in: \(String(describing: error.localizedDescription))")
             }
 
             self.dismiss(animated: true)
@@ -124,7 +124,28 @@ extension LoginController {
     }
 
     private func handleGoogleLogin(_: UIAction) {
-        print("DEBUG: Login with google")
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+
+        // Create Google Sign In configuration object.
+        let config = GIDConfiguration(clientID: clientID)
+
+        GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { [weak self] user, error in
+            if let error = error {
+                print("DEUBG: Fail to google sign in: \(error.localizedDescription)")
+                return
+            }
+
+            guard let user = user else { return }
+
+            RemoteService.signInWithGoogle(user: user) { result in
+                if case let .failure(error) = result {
+                    print("DEUBG: Fail to google sign in: \(error.localizedDescription)")
+                    return
+                }
+
+                self?.dismiss(animated: true)
+            }
+        }
     }
 
     private func showForgetPassword(_: UIAction) {

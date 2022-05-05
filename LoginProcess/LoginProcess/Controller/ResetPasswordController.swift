@@ -17,6 +17,8 @@ class ResetPasswordController: UIViewController {
     private let emailTextField: TextInput = {
         let textField = TextInput()
         textField.setPlaceholder("Email")
+        textField.keyboardType = .emailAddress
+        textField.autocapitalizationType = .none
         return textField
     }()
 

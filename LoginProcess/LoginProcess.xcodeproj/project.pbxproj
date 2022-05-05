@@ -18,6 +18,10 @@
 		E4135B2D2821180D0033D61D /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4135B2C2821180D0033D61D /* HomeController.swift */; };
 		E4198F292820C2E9003CFE0A /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4198F282820C2E9003CFE0A /* RegistrationController.swift */; };
 		E4198F2B2820C7A8003CFE0A /* ResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4198F2A2820C7A8003CFE0A /* ResetPasswordController.swift */; };
+		E439FEDA2823C128002DABE1 /* RemoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439FED92823C128002DABE1 /* RemoteService.swift */; };
+		E439FEDD2823DDB8002DABE1 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439FEDC2823DDB8002DABE1 /* LoginViewModel.swift */; };
+		E439FEDF2823DDC7002DABE1 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439FEDE2823DDC7002DABE1 /* RegistrationViewModel.swift */; };
+		E439FEE12823DDD9002DABE1 /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439FEE02823DDD9002DABE1 /* ResetPasswordViewModel.swift */; };
 		E43B1284281FF36200D88544 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B1283281FF36200D88544 /* AppDelegate.swift */; };
 		E43B1286281FF36200D88544 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B1285281FF36200D88544 /* SceneDelegate.swift */; };
 		E43B128D281FF36600D88544 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E43B128C281FF36600D88544 /* Assets.xcassets */; };
@@ -44,6 +48,10 @@
 		E4135B2C2821180D0033D61D /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		E4198F282820C2E9003CFE0A /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		E4198F2A2820C7A8003CFE0A /* ResetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordController.swift; sourceTree = "<group>"; };
+		E439FED92823C128002DABE1 /* RemoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteService.swift; sourceTree = "<group>"; };
+		E439FEDC2823DDB8002DABE1 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		E439FEDE2823DDC7002DABE1 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		E439FEE02823DDD9002DABE1 /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
 		E43B1280281FF36200D88544 /* LoginProcess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginProcess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E43B1283281FF36200D88544 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E43B1285281FF36200D88544 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +113,13 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		E439FEDB2823DD80002DABE1 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
 		E43B1277281FF36200D88544 = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +147,7 @@
 				E43B1285281FF36200D88544 /* SceneDelegate.swift */,
 				E40C29B02821038E00981DE0 /* Resources */,
 				E40C29AF2821038600981DE0 /* Support files */,
+				E439FEDB2823DD80002DABE1 /* UseCases */,
 				E43B129C281FF3E700D88544 /* API */,
 				E43B129E281FF3F200D88544 /* Utility */,
 				E43B129B281FF3C100D88544 /* Model */,
@@ -146,6 +162,9 @@
 			isa = PBXGroup;
 			children = (
 				E40C29A72820E8AD00981DE0 /* AuthenticationViewModel.swift */,
+				E439FEE02823DDD9002DABE1 /* ResetPasswordViewModel.swift */,
+				E439FEDE2823DDC7002DABE1 /* RegistrationViewModel.swift */,
+				E439FEDC2823DDB8002DABE1 /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -171,6 +190,7 @@
 		E43B129C281FF3E700D88544 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				E439FED92823C128002DABE1 /* RemoteService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -353,6 +373,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E40C29A82820E8AD00981DE0 /* AuthenticationViewModel.swift in Sources */,
+				E439FEE12823DDD9002DABE1 /* ResetPasswordViewModel.swift in Sources */,
+				E439FEDF2823DDC7002DABE1 /* RegistrationViewModel.swift in Sources */,
 				E43B12A6281FF68D00D88544 /* UIView+Extensions.swift in Sources */,
 				E40C29AA2820EEB400981DE0 /* LabelButton.swift in Sources */,
 				E47BCE43282014C600D01BBF /* AuthButton.swift in Sources */,
@@ -361,6 +383,8 @@
 				E4198F292820C2E9003CFE0A /* RegistrationController.swift in Sources */,
 				E47BCE412820127B00D01BBF /* TextInput.swift in Sources */,
 				E40C29A42820E32200981DE0 /* UIViewController+Extensions.swift in Sources */,
+				E439FEDA2823C128002DABE1 /* RemoteService.swift in Sources */,
+				E439FEDD2823DDB8002DABE1 /* LoginViewModel.swift in Sources */,
 				E40C29AC2820F0C600981DE0 /* UIColor+Extensions.swift in Sources */,
 				E43B1284281FF36200D88544 /* AppDelegate.swift in Sources */,
 				E43B1286281FF36200D88544 /* SceneDelegate.swift in Sources */,
